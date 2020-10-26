@@ -13,7 +13,7 @@ public class CommentService {
     @Autowired
     private CommentRepository repository;
 
-    // save the comments by comment object
+    // save/create the comments from comment object
     public void saveComments(Comment comment){
         repository.saveComments(comment);
     }

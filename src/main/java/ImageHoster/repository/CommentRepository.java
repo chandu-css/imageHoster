@@ -33,7 +33,7 @@ public class CommentRepository {
         }
     }
 
-    // Get all the comments for the image
+    // Get all the comments for the image by imageId
     public List<Comment> getAllComments(Integer imageId){
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();

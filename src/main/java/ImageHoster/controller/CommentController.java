@@ -27,8 +27,9 @@ public class CommentController {
     @Autowired
     private ImageService imageService;
 
+    // save the comment under an image by applicant or user.
     @RequestMapping(value = "image/{imageId}/{imageTitle}/comments", method = RequestMethod.POST)
-    public String registerUser(@RequestParam("comment") String commentValue, @PathVariable("imageTitle") String imageTitle, @PathVariable("imageId") Integer imageId, HttpSession session, Model model) {
+    public String saveComments(@RequestParam("comment") String commentValue, @PathVariable("imageTitle") String imageTitle, @PathVariable("imageId") Integer imageId, HttpSession session, Model model) {
         Comment comment = new Comment();
         comment.setText(commentValue);
         Image image = imageService.getImage(imageId);

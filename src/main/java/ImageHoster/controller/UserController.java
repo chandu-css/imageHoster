@@ -95,8 +95,8 @@ public class UserController {
 
     // validates password wih all the strength
     private boolean validatePasswordStrength(String password){
-        // Regex to check valid password.
-        final String PASSWORD_PATTERN = "((?=.*[a-z])(?=.*\\d)(?=.*[A-Z])(?=.*[@#$%!^&*()]).{8,40})";
+        // Regex to check valid password. (digits: 0 - 9, 'A' to 'Z' or 'a' to 'z' and shown special characters)
+        final String PASSWORD_PATTERN = "((?=.*\\d)(?=.*[A-Z|a-z])(?=.*[@#$%!^&*()]).{3,25})";
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
         Matcher matcher = pattern.matcher(password);

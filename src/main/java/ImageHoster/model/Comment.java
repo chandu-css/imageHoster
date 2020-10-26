@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+//Here the name of the table to be created in the database is explicitly mentioned as 'comment'. Hence the table named 'comment' will be created in the database with all the columns mapped to all the attributes in 'Comment' class
 @Table(name = "comment")
 public class Comment {
 
@@ -15,9 +16,15 @@ public class Comment {
     private String text;
     @Column(name = "created_date")
     private Date createdDate;
+    //The 'comment' table is mapped to 'users' table with Many:One mapping
+    //One comment can have only one user (owner) but one user can have multiple comments
+    //FetchType is EAGER
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
+    //The 'comment' table is mapped to 'images' table with Many:One mapping
+    //One comment can post on only one image but one image can have multiple comments
+    //FetchType is EAGER
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id")
     private Image image;
