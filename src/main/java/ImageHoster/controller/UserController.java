@@ -100,7 +100,6 @@ public class UserController {
         Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
         Matcher matcher = pattern.matcher(password);
-        System.out.println(" *********************"+ matcher.matches());
         return matcher.matches();
     }
 
